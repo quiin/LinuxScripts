@@ -9,10 +9,12 @@
 if [[ ( -z "$1") ]]; then
 	if [[ (! -z "$WINDOWS_PATH") ]]; then
 		udisksctl mount --block-device $WINDOWS_PATH --options ro
+		nautilus /media/quiin/Windows8_OS
 	else
-		echo "Usage: mountRO path/to/mount"
+		echo "Usage: romount path/to/mount"
 		echo "Default value is taken from \$WINDOWS_PATH variable"
 	fi	
 else
 	udisksctl mount --block-device $1 --options ro
+	nautilus /media/quiin/Windows8_OS
 fi
