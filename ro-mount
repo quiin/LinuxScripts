@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#Script to mount a drive path in read only mode.
+
+#If no path is set, $WINDOWS_PATH is used.
+#If $WINDOW_PATH is not found, usage message is shown
+
+
+if [[ ( -z "$1") ]]; then
+	if [[ (! -z "$WINDOWS_PATH") ]]; then
+		udisksctl mount --block-device $WINDOWS_PATH --options ro
+	else
+		echo "Usage: mountRO path/to/mount"
+		echo "Default value is taken from \$WINDOWS_PATH variable"
+	fi	
+else
+	udisksctl mount --block-device $1 --options ro
+fi

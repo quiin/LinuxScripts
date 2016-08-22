@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#Sets custom environment variables as well as ~/bin folder
+
+#This script is meant to only be run once to set a basic environment.
+#Multiple runs may result in ~/.bashrc corruption or file inconsistency
+
+echo "\$WINDOWS_PATH=/dev/sda5" >> ~/.bashrc
+echo "\$PORT=8080" >> ~/.bashrc
+source ~/.bashrc
+
+mkdir ~/bin
